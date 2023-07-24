@@ -25,10 +25,13 @@ class MenuDTO(Menu):
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SUBMENUS
-class Submenu(BaseModel):
-    id: str
+class CreateSubmenuDTO(BaseModel):
     title: str
     description: str
+
+
+class Submenu(CreateSubmenuDTO):
+    id: str
 
     class Config:
         orm_mode = True
@@ -39,10 +42,14 @@ class SubmenuDTO(Submenu):
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DISHES
-class Dish(BaseModel):
-    id: str
+class CreateDishDTO(BaseModel):
     title: str
     description: str
+    price: str
+
+
+class Dish(CreateDishDTO):
+    id: str
     price: float
 
     class Config:
